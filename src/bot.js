@@ -17,10 +17,10 @@ bot.start((ctx) => {
     );
 });
 
-// هر پیام کاربر
+// every user message
 bot.on("message", async (ctx) => {
 
-    // پیام خودت (ادمین)
+    // Admin message
     if (ctx.from.id === ADMIN_ID) {
 
         if (!ctx.message.reply_to_message) {
@@ -61,17 +61,14 @@ bot.on("message", async (ctx) => {
     }
 
 
-    // پیام کاربر
+    //user message
     if (!("text" in ctx.message)) return;
 
 
     const sent = await ctx.telegram.sendMessage(
-        ADMIN_ID,
-        `📨 پیام جدید\n\n` +
-        `👤 ${ctx.from.first_name}\n` +
-        `🆔 ${ctx.from.id}\n` +
-        `@${ctx.from.username ?? "ندارد"}\n\n` +
-        `${ctx.message.text}`
+    ADMIN_ID,
+    `📨 پیام جدید ناشناس\n\n` +
+    `${ctx.message.text}`
     );
 
 
@@ -92,7 +89,7 @@ bot.on("message", async (ctx) => {
 });
 
 
-// پاسخ ادمین
+//Admins rep
 bot.on("message", async (ctx) => {
 
     if (ctx.from.id !== ADMIN_ID) return;
