@@ -53,7 +53,7 @@ bot.on("message", async (ctx) => {
             ctx.message.text
         );
 
-        await ctx.reply("✅ پاسخ با موفقیت برای کاربر ارسال شد.");
+        await ctx.reply("✅ پاسخ با موفقیت ارسال شد.");
 
         console.log("Reply sent");
 
